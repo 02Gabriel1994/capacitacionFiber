@@ -31,6 +31,7 @@ class app:
        frameLogo.pack(side="left", expand=tk.NO, fill=tk.BOTH)# coloca el marco en la ventana principal utilizando el método pack(). El parámetro side="left" indica que el marco se colocará a la izquierda de otros elementos (si los hay). expand=tk.YES y fill=tk.BOTH permiten que el marco se expanda tanto horizontal como verticalmente para ocupar todo el espacio disponible en el lado izquierdo de la ventana.
        label = tk.Label(frameLogo, image=logo, bg = '#3a7ff6')
        label.place(x=0, y=0, relwidth=1, relheight=1)
+       self.ventana.iconbitmap("./Login/Imagenes/sombrero-de-graduacion.ico")
        # crea el contenedor al lado dere
        frameForm = tk.Frame(self.ventana, bd=0, relief=tk.SOLID, bg='#fcfcfc')
        frameForm.pack(side ="right", expand=tk.YES, fill=tk.BOTH)
@@ -61,6 +62,7 @@ class app:
        inicio.bind("<Return>",(lambda event:self.verificar))
        
        
+       #self.usuario.insert(0,"Holas")
        self.ventana.mainloop()
        
   

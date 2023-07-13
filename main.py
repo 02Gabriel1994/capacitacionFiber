@@ -1,3 +1,3 @@
-from Login.Forms.login import app
+from Login.Forms.master import masterPanel
 
-app()
+masterPanel()
