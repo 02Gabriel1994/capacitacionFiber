@@ -27,26 +27,45 @@ class masterPanel:
         title = tk.Label(self.ventana, text="Formacion de empleados Fiberglass", font=('Arial', 40), fg="#666a88", bg="#fcfcfc", padx=50)# Se crea una etiqueta (Label) de Tkinter dentro del marco frameFormTop. La etiqueta muestra el texto "CAPACITEICHON" y tiene una fuente de tamaño 40 en Arial. Los parámetros fg="#666a88" y bg="#fcfcfc" establecen los colores del texto y del fondo, respectivamente. El parámetro padx=50 agrega un relleno interno horizontal de 50 píxeles a la etiqueta.
         title.pack(expand=tk.NO, fill=tk.BOTH) # Aquí se empaqueta (coloca) la etiqueta title dentro del marco frameFormTop. El parámetro expand=tk.NO indica que la etiqueta no debe expandirse para llenar todo el espacio disponible, y fill=tk.BOTH permite que la etiqueta se expanda tanto horizontal como verticalmente para llenar el espacio disponible.
         #Etiqueta y cuadro para sgid
-        etiqueta = tk.Label(self.ventana, text="Sgid: ", font=('Arial', 10),bg='#ffcc00')
-        etiqueta.place(x=20, y=100, anchor="nw")
+        etiqueta = tk.Label(self.ventana, text="Sgid: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
+        etiqueta.place(x=40, y=100, anchor="nw")
         textoSgid = tk.Entry(self.ventana, font=("Arial", 10))
         textoSgid.place(x=80, y=100, anchor="nw")
         #Etiqueta y cuadro para Nombre
-        etiquetaNombre = tk.Label(self.ventana, text="Nombre: ", font=('Arial', 10),bg='#ffcc00')
-        etiquetaNombre.place(x=320, y=100, anchor="n")
+        etiquetaNombre = tk.Label(self.ventana, text="Nombre: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
+        etiquetaNombre.place(x=20, y=200)
         textoNombre = tk.Entry(self.ventana, font=("Arial", 10), width=40, state="disabled")
-        textoNombre.place(x=500, y=100, anchor="n")
+        textoNombre.place(x=80, y=200 )
          #Etiqueta y cuadro para genero
-        etiquetaGenero = tk.Label(self.ventana, text="Genero: ", font=('Arial', 10),bg='#ffcc00')
-        etiquetaGenero.place(x=770, y=100, anchor="ne")
+        etiquetaGenero = tk.Label(self.ventana, text="Genero: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
+        etiquetaGenero.place(x=450, y=200)
         textoGenero = tk.Entry(self.ventana, font=("Arial", 10), width=10, state="disabled")
-        textoGenero.place(x=850, y=100, anchor="ne")
+        textoGenero.place(x=510, y=200)
          #Etiqueta y cuadro para fecha de ingreso
-        etiquetafecha = tk.Label(self.ventana, text="fecha de ingreso: ", font=('Arial', 10), bg='#ffcc00')
-        etiquetafecha.place(x=900, y=100 )
-        textofecha = tk.Entry(self.ventana, font=("Arial", 10), width=10, state="disabled")
-        textofecha.place(x=1020, y=100)
+        etiquetafecha = tk.Label(self.ventana, text="fecha de ingreso: ", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetafecha.place(x=690, y=200 )
+        textofecha = tk.Entry(self.ventana, font=("Arial", 10), width=20, state="disabled")
+        textofecha.place(x=810, y=200)
+        #Etiqueta y cuadro para Cedula
+        etiquetaCedula = tk.Label(self.ventana, text="Cedula:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaCedula.place(x=240, y=100 )
+        textoCedula = tk.Entry(self.ventana, font=("Arial", 10))
+        textoCedula.place(x=300, y=100)
+        # boton para buscar
+        buscar = tk.Button(self.ventana, text="Buscar", font=("Arial", 14), bg= "#000000", bd=0, fg="#fff")
+        buscar.place(x=500, y=90)
+        #Etiqueta y centro de costos
+        etiquetaCc = tk.Label(self.ventana, text="CC:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaCc.place(x=1050, y=200 )
+        textoCc = tk.Entry(self.ventana, font=("Arial", 10), state="disabled",width=5)
+        textoCc.place(x=1080, y=200)
+        #Etiqueta y texto para Area
+        etiquetaArea = tk.Label(self.ventana, text="Area:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaArea.place(x=1200, y=200 )
+        textoArea = tk.Entry(self.ventana, font=("Arial", 10), state="disabled",width=35)
+        textoArea.place(x=1250, y=200)
         self.ventana.mainloop()
         
         
-        
+
+
