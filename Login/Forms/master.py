@@ -19,51 +19,62 @@ class masterPanel:
         #w,h = self.ventana.winfo_screenmmwidth(),self.ventana.winfo_screenheight() # En esta línea, se obtiene el ancho (w) y la altura (h) de la pantalla en la que se ejecuta la ventana utilizando los métodos .winfo_screenwidth() y .winfo_screenheight() respectivamente.
         self.ventana.geometry(f"{ancho}x{alto}+{x}+{y}") #con las coordenadas hallas anteriormente se calcula el tamaño de la ventana y se centra.
         self.ventana.config(bg='#ffcc00') # se configura el color de fondo de la ventana como '#fcfcfc' utilizando el método .config(). El código de color '#fcfcfc' representa un tono de gris claro.
-        self.ventana.resizable(width=0, height=0) # Aquí se establece la capacidad de redimensionamiento de la ventana a width=0 y height=0, lo que significa que la ventana no se podrá redimensionar en ancho ni en alto. Esto evita que el usuario pueda cambiar el tamaño de la ventana manualmente.
+        self.ventana.resizable(width=10, height=10) # Aquí se establece la capacidad de redimensionamiento de la ventana a width=0 y height=0, lo que significa que la ventana no se podrá redimensionar en ancho ni en alto. Esto evita que el usuario pueda cambiar el tamaño de la ventana manualmente.
         logo  = utl.leerImagen("./Login/Imagenes/isolino graduado.png",(200,200))
         label = tk.Label(self.ventana, image=logo, bg='#ffcc00')
         self.ventana.iconbitmap("./Login/Imagenes/sombrero-de-graduacion.ico")
         label.place(x=0,y=0,relwidth=1,relheight=1)
         title = tk.Label(self.ventana, text="Formacion de empleados Fiberglass", font=('Arial', 40), fg="#666a88", bg="#fcfcfc", padx=50)# Se crea una etiqueta (Label) de Tkinter dentro del marco frameFormTop. La etiqueta muestra el texto "CAPACITEICHON" y tiene una fuente de tamaño 40 en Arial. Los parámetros fg="#666a88" y bg="#fcfcfc" establecen los colores del texto y del fondo, respectivamente. El parámetro padx=50 agrega un relleno interno horizontal de 50 píxeles a la etiqueta.
         title.pack(expand=tk.NO, fill=tk.BOTH) # Aquí se empaqueta (coloca) la etiqueta title dentro del marco frameFormTop. El parámetro expand=tk.NO indica que la etiqueta no debe expandirse para llenar todo el espacio disponible, y fill=tk.BOTH permite que la etiqueta se expanda tanto horizontal como verticalmente para llenar el espacio disponible.
+        
+        frameFormTop =tk.Frame(self.ventana, height=50, bd=0, relief=tk.SOLID, bg='#ffcc00')#crea un marco frameFormTop dentro de otro marco llamado frameForm. El parámetro height=50 establece la altura del marco en 50 píxeles, bd=0 establece el ancho del borde en cero, relief=tk.SOLID define el estilo del borde como sólido y bg='black' establece el color de fondo del marco en negro.
+        frameFormTop.pack(side='top', fill=tk.X) #El parámetro side='top' indica que el marco se coloque en la parte superior de otros elementos (si los hay), y fill=tk.X permite que el marco se expanda horizontalmente para ocupar todo el ancho disponible.
         #Etiqueta y cuadro para sgid
-        etiqueta = tk.Label(self.ventana, text="Sgid: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
-        etiqueta.place(x=40, y=100, anchor="nw")
-        textoSgid = tk.Entry(self.ventana, font=("Arial", 10))
-        textoSgid.place(x=80, y=100, anchor="nw")
-        #Etiqueta y cuadro para Nombre
-        etiquetaNombre = tk.Label(self.ventana, text="Nombre: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
-        etiquetaNombre.place(x=20, y=200)
-        textoNombre = tk.Entry(self.ventana, font=("Arial", 10), width=40, state="disabled")
-        textoNombre.place(x=80, y=200 )
-         #Etiqueta y cuadro para genero
-        etiquetaGenero = tk.Label(self.ventana, text="Genero: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
-        etiquetaGenero.place(x=450, y=200)
-        textoGenero = tk.Entry(self.ventana, font=("Arial", 10), width=10, state="disabled")
-        textoGenero.place(x=510, y=200)
-         #Etiqueta y cuadro para fecha de ingreso
-        etiquetafecha = tk.Label(self.ventana, text="fecha de ingreso: ", font=('Arial', 10, 'bold'), bg='#ffcc00')
-        etiquetafecha.place(x=690, y=200 )
-        textofecha = tk.Entry(self.ventana, font=("Arial", 10), width=20, state="disabled")
-        textofecha.place(x=810, y=200)
+        etiqueta = tk.Label(frameFormTop, text="Sgid: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
+        etiqueta.pack(side= 'left', padx=(50, 3), pady=50 )
+        textoSgid = tk.Entry(frameFormTop, font=("Arial", 10))
+        textoSgid.pack(side= 'left', padx=(1,20), pady=50 )
         #Etiqueta y cuadro para Cedula
-        etiquetaCedula = tk.Label(self.ventana, text="Cedula:", font=('Arial', 10, 'bold'), bg='#ffcc00')
-        etiquetaCedula.place(x=240, y=100 )
-        textoCedula = tk.Entry(self.ventana, font=("Arial", 10))
-        textoCedula.place(x=300, y=100)
+        etiquetaCedula = tk.Label(frameFormTop, text="Cedula:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaCedula.pack(side= 'left', padx=(10,2))
+        textoCedula = tk.Entry(frameFormTop, font=("Arial", 10))
+        textoCedula.pack(side= 'left', padx=(1,20))
         # boton para buscar
-        buscar = tk.Button(self.ventana, text="Buscar", font=("Arial", 14), bg= "#000000", bd=0, fg="#fff")
-        buscar.place(x=500, y=90)
+        buscar = tk.Button(frameFormTop, text="Buscar", font=("Arial", 14), bg= "#000000", bd=0, fg="#fff")
+        buscar.pack(side= 'left', padx=20)
+               
+        #--------------
+        #Segundo llenado
+        #-----------
+        frameForm2 =tk.Frame(self.ventana, height=50, bd=0, relief=tk.SOLID, bg='#ffcc00')#crea un marco frameFormTop dentro de otro marco llamado frameForm. El parámetro height=50 establece la altura del marco en 50 píxeles, bd=0 establece el ancho del borde en cero, relief=tk.SOLID define el estilo del borde como sólido y bg='black' establece el color de fondo del marco en negro.
+        frameForm2.columnconfigure([0,1,2,3,4,5,6,7,8,9], weight=1)
+        frameForm2.pack(side='top', fill=tk.X)    
+        #Etiqueta y cuadro para Nombre
+        etiquetaNombre = tk.Label(frameForm2, text="Nombre: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
+        etiquetaNombre.grid(row=0, column=0, padx=(20,1))
+        textoNombre = tk.Entry(frameForm2, font=("Arial", 10), width=40, state="disabled")
+        textoNombre.grid(row=0, column=1, padx=(3,20))
+         #Etiqueta y cuadro para genero
+        etiquetaGenero = tk.Label(frameForm2, text="Genero: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
+        etiquetaGenero.grid(row=0, column=2, padx=(0,3))
+        textoGenero = tk.Entry(frameForm2, font=("Arial", 10), width=10, state="disabled")
+        textoGenero.grid(row=0, column=3, padx=(1,20))
+         #Etiqueta y cuadro para fecha de ingreso
+        etiquetafecha = tk.Label(frameForm2, text="Fecha de ingreso: ", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetafecha.grid(row=0, column=4, padx=(0,3))
+        textofecha = tk.Entry(frameForm2, font=("Arial", 10), width=20, state="disabled")
+        textofecha.grid(row=0, column=5, padx=(1,20))
+        
         #Etiqueta y centro de costos
-        etiquetaCc = tk.Label(self.ventana, text="CC:", font=('Arial', 10, 'bold'), bg='#ffcc00')
-        etiquetaCc.place(x=1050, y=200 )
-        textoCc = tk.Entry(self.ventana, font=("Arial", 10), state="disabled",width=5)
-        textoCc.place(x=1080, y=200)
+        etiquetaCc = tk.Label(frameForm2, text="CC:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaCc.grid(row=0, column=6, padx=(0,3))
+        textoCc = tk.Entry(frameForm2, font=("Arial", 10), state="disabled",width=5)
+        textoCc.grid(row=0, column=7, padx=(1,20))
         #Etiqueta y texto para Area
-        etiquetaArea = tk.Label(self.ventana, text="Area:", font=('Arial', 10, 'bold'), bg='#ffcc00')
-        etiquetaArea.place(x=1200, y=200 )
-        textoArea = tk.Entry(self.ventana, font=("Arial", 10), state="disabled",width=35)
-        textoArea.place(x=1250, y=200)
+        etiquetaArea = tk.Label(frameForm2, text="Area:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaArea.grid(row=0, column=8, padx=(0,3))
+        textoArea = tk.Entry(frameForm2, font=("Arial", 10), state="disabled", width=35)
+        textoArea.grid(row=0, column=9, padx=(1,20))        
         self.ventana.mainloop()
         
         
