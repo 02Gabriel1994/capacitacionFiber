@@ -44,10 +44,10 @@ class masterPanel:
         buscar.pack(side= 'left', padx=20)
                
         #--------------
-        #Segundo llenado
+        #Segundo frame
         #-----------
         frameForm2 =tk.Frame(self.ventana, height=50, bd=0, relief=tk.SOLID, bg='#ffcc00')#crea un marco frameFormTop dentro de otro marco llamado frameForm. El parámetro height=50 establece la altura del marco en 50 píxeles, bd=0 establece el ancho del borde en cero, relief=tk.SOLID define el estilo del borde como sólido y bg='black' establece el color de fondo del marco en negro.
-        frameForm2.columnconfigure([0,1,2,3,4,5,6,7,8,9], weight=1)
+        frameForm2.columnconfigure([0,1,2,3,4,5], weight=1)
         frameForm2.pack(side='top', fill=tk.X)    
         #Etiqueta y cuadro para Nombre
         etiquetaNombre = tk.Label(frameForm2, text="Nombre: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
@@ -64,18 +64,54 @@ class masterPanel:
         etiquetafecha.grid(row=0, column=4, padx=(0,3))
         textofecha = tk.Entry(frameForm2, font=("Arial", 10), width=20, state="disabled")
         textofecha.grid(row=0, column=5, padx=(1,20))
-        
+          #--------------
+        #Tercer frame
+        #-----------
+        frameForm3 =tk.Frame(self.ventana, height=50, bd=20,  bg='#ffcc00')#crea un marco frameFormTop dentro de otro marco llamado frameForm. El parámetro height=50 establece la altura del marco en 50 píxeles, bd=0 establece el ancho del borde en cero, relief=tk.SOLID define el estilo del borde como sólido y bg='black' establece el color de fondo del marco en negro.
+        frameForm3.columnconfigure([0,1,2,3,4,5], weight=1)
+        frameForm3.pack(side='top', fill=tk.X)
         #Etiqueta y centro de costos
-        etiquetaCc = tk.Label(frameForm2, text="CC:", font=('Arial', 10, 'bold'), bg='#ffcc00')
-        etiquetaCc.grid(row=0, column=6, padx=(0,3))
-        textoCc = tk.Entry(frameForm2, font=("Arial", 10), state="disabled",width=5)
-        textoCc.grid(row=0, column=7, padx=(1,20))
+        etiquetaCc = tk.Label(frameForm3, text="CC:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaCc.grid(row=0, column=0, padx=(0))
+        textoCc = tk.Entry(frameForm3, font=("Arial", 10), state="disabled",width=5)
+        textoCc.grid(row=0, column=1, padx=(0))
         #Etiqueta y texto para Area
-        etiquetaArea = tk.Label(frameForm2, text="Area:", font=('Arial', 10, 'bold'), bg='#ffcc00')
-        etiquetaArea.grid(row=0, column=8, padx=(0,3))
-        textoArea = tk.Entry(frameForm2, font=("Arial", 10), state="disabled", width=35)
-        textoArea.grid(row=0, column=9, padx=(1,20))        
+        etiquetaArea = tk.Label(frameForm3, text="Area:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaArea.grid(row=0, column=2, padx=(0))
+        textoArea = tk.Entry(frameForm3, font=("Arial", 10), state="disabled", width=35)
+        textoArea.grid(row=0, column=3, padx=(0)) 
+         #Etiqueta y texto para Cargo
+        etiquetaCargo = tk.Label(frameForm3, text="Cargo:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaCargo.grid(row=0, column=4, padx=(0))
+        textoCargo = tk.Entry(frameForm3, font=("Arial", 10), state="disabled", width=35)
+        textoCargo.grid(row=0, column=5, padx=(0))   
+        #--------------
+        #cuarto frame
+        #-----------
+        frameForm4 =tk.Frame(self.ventana, height=50, bd=20,  bg='#ffcc00')#crea un marco frameFormTop dentro de otro marco llamado frameForm. El parámetro height=50 establece la altura del marco en 50 píxeles, bd=0 establece el ancho del borde en cero, relief=tk.SOLID define el estilo del borde como sólido y bg='black' establece el color de fondo del marco en negro.
+        frameForm4.columnconfigure([0,1,2,3], weight=1)
+        frameForm4.pack(side='top', fill=tk.X)     
+          #Etiqueta y texto para tipo empleado
+        etiquetaEmpleado = tk.Label(frameForm4, text="Tipo Empleado:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaEmpleado.grid(row=0, column=0)
+        textoEmpleado = tk.Entry(frameForm4, font=("Arial", 10), state="disabled", width=35)
+        textoEmpleado.grid(row=0, column=1)  
+         #Etiqueta y texto para tipo empleado
+        etiquetaCapacitacion = tk.Label(frameForm4, text="Nombre Capacitacion:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaCapacitacion.grid(row=0, column=2)
+        textoCapacitacion = tk.Entry(frameForm4, font=("Arial", 10), state="disabled", width=35)
+        textoCapacitacion.grid(row=0, column=3)   
+         #--------------
+        #cuarto frame
+        #----------- 
+        frameForm5 =tk.Frame(self.ventana, height=50, bd=20,  bg='#ffcc00')#crea un marco frameFormTop dentro de otro marco llamado frameForm. El parámetro height=50 establece la altura del marco en 50 píxeles, bd=0 establece el ancho del borde en cero, relief=tk.SOLID define el estilo del borde como sólido y bg='black' establece el color de fondo del marco en negro.
+        frameForm5.columnconfigure([0,1,2,3], weight=1)
+        frameForm5.pack(side='bottom', fill=tk.X) 
+        #Boton Guardar      
+        guardar = tk.Button(frameForm5, text="Guardar", font=("Arial", 14), bg= "#000000", bd=0, fg="#fff")
+        guardar.pack(side= 'bottom', padx=20)
         self.ventana.mainloop()
+        
         
         
 
