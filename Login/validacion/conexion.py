@@ -41,13 +41,13 @@ def buscar_Datos(sgid, cedula):
     encontrado = False
 
     try:
-        libro_excel = openpyxl.load_workbook("F:/Documentos/PROYECTOS/pruebas/Nuevo Hoja de cálculo de Microsoft Excel.xlsx")
+        libro_excel = openpyxl.load_workbook("F:/Documentos/PROYECTOS/pruebas/BASE DE DATOS PARA EL INGENIERO GABRIEL.xlsm")
         hoja = libro_excel.active
      
 
         for fila in hoja.iter_rows(min_row=2, values_only=True):
             
-            if fila[0] == buscar:
+            if fila[5] == buscar:
                 encontrado = True
                 return fila
                 
