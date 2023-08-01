@@ -1,3 +1,3 @@
-from Login.Forms.master import masterPanel
+from Login.Forms.Capacitaciones import RCapacitacion
 
-masterPanel()
+RCapacitacion()
