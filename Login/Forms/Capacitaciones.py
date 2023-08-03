@@ -5,6 +5,7 @@ import Login.utilidades.generic as utl
 import Login.validacion.conexion as con
 from datetime import datetime
 from tkinter import messagebox
+from tkcalendar import DateEntry
 
 class RCapacitacion:
     
@@ -52,9 +53,10 @@ class RCapacitacion:
         #Segundo frame
         #-----------
         frameForm2 =tk.Frame(self.ventana, height=70, bd=0, relief=tk.SOLID, bg='#ffcc00')#crea un marco frameFormTop dentro de otro marco llamado frameForm. El parámetro height=50 establece la altura del marco en 50 píxeles, bd=0 establece el ancho del borde en cero, relief=tk.SOLID define el estilo del borde como sólido y bg='black' establece el color de fondo del marco en negro.
-        frameForm2.columnconfigure([0,1,2,3,4,5], weight=1)
+        frameForm2.columnconfigure([0,1,2,3,4,5,6,7], weight=1)
         frameForm2.pack(side='top', fill=tk.X)
         frameForm2.pack_configure(padx=100)    
+        
         #Etiqueta y cuadro para solicitante
         solicitante = tk.StringVar()
         etiquetaNombre = tk.Label(frameForm2, text="Solicitante: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
@@ -63,37 +65,39 @@ class RCapacitacion:
         elementos = ["Gerente de area", "Jefes", "Supervisores"]
         textoSolicitante['values'] = elementos
         textoSolicitante.grid(row=0, column=1, padx=(1,20))
-         #Etiqueta y cuadro para genero
-        etiquetaGenero = tk.Label(frameForm2, text="Genero: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
-        etiquetaGenero.grid(row=0, column=2, padx=(0,3))
-        textoGenero = tk.Entry(frameForm2, font=("Arial", 10), width=15, state="disabled")
-        textoGenero.grid(row=0, column=3, padx=(1,20))
-         #Etiqueta y cuadro para fecha de ingreso
-        etiquetafecha = tk.Label(frameForm2, text="Fecha de ingreso: ", font=('Arial', 10, 'bold'), bg='#ffcc00')
-        etiquetafecha.grid(row=0, column=4, padx=(0,3))
-        textofecha = tk.Entry(frameForm2, font=("Arial", 10), width=20, state="disabled")
-        textofecha.grid(row=0, column=5, padx=(1,20))
+        
+         #Etiqueta y cuadro de fecha para desde
+        label_from = tk.Label(frameForm2, text="Fecha solicitada:" , font=('Arial', 10, 'bold'),bg='#ffcc00')
+        label_from.grid(row=0, column=2, padx=(0,3))
+        cal_from = DateEntry(frameForm2, width=12,  background='black', foreground='#ffcc00', borderwidth=2, state="readonly")
+        cal_from.grid(row=0, column=3)
+        cal_from.place_forget() 
+        
+         #Etiqueta y cuadro de fecha para hasta
+        label_from = tk.Label(frameForm2, text="Fecha planeada:" , font=('Arial', 10, 'bold'),bg='#ffcc00')
+        label_from.grid(row=0, column=4, padx=(0,3))
+        cal_from = DateEntry(frameForm2, width=12,  background='black', foreground='#ffcc00', borderwidth=2, state="readonly")
+        cal_from.grid(row=0, column=5)
+        cal_from.place_forget() 
+       
           #--------------
         #Tercer frame
         #-----------
         frameForm3 =tk.Frame(self.ventana, height=70, bd=20,  bg='#ffcc00')#crea un marco frameFormTop dentro de otro marco llamado frameForm. El parámetro height=50 establece la altura del marco en 50 píxeles, bd=0 establece el ancho del borde en cero, relief=tk.SOLID define el estilo del borde como sólido y bg='black' establece el color de fondo del marco en negro.
         frameForm3.columnconfigure([0,1,2,3,4,5], weight=1)
         frameForm3.pack(side='top', fill=tk.X)
-        #Etiqueta y centro de costos
-        etiquetaCc = tk.Label(frameForm3, text="CC:", font=('Arial', 10, 'bold'), bg='#ffcc00')
-        etiquetaCc.grid(row=0, column=0, padx=(0))
-        textoCc = tk.Entry(frameForm3, font=("Arial", 10), state="disabled",width=5)
-        textoCc.grid(row=0, column=1, padx=(0))
+        # Etiqueta para Fecha ejecutada
+        label_from = tk.Label(frameForm3, text="Fecha ejecutada:" , font=('Arial', 10, 'bold'),bg='#ffcc00')
+        label_from.grid(row=0, column=0, padx=(0,3))
+        cal_from = DateEntry(frameForm3, width=12,  background='black', foreground='#ffcc00', borderwidth=2, state="readonly")
+        cal_from.grid(row=0, column=1)
+        cal_from.place_forget() 
         #Etiqueta y texto para Area
-        etiquetaArea = tk.Label(frameForm3, text="Area:", font=('Arial', 10, 'bold'), bg='#ffcc00')
-        etiquetaArea.grid(row=0, column=2, padx=(0))
-        textoArea = tk.Entry(frameForm3, font=("Arial", 10), state="disabled", width=35)
-        textoArea.grid(row=0, column=3, padx=(0)) 
-         #Etiqueta y texto para Cargo
-        etiquetaCargo = tk.Label(frameForm3, text="Cargo:", font=('Arial', 10, 'bold'), bg='#ffcc00')
-        etiquetaCargo.grid(row=0, column=4, padx=(0))
-        textoCargo = tk.Entry(frameForm3, font=("Arial", 10), state="disabled", width=35)
-        textoCargo.grid(row=0, column=5, padx=(0))   
+        etiquetaTema = tk.Label(frameForm3, text="Area:", font=('Arial', 10, 'bold'), bg='#ffcc00')
+        etiquetaTema.grid(row=0, column=2, padx=(0))
+        textoTema = tk.Text(frameForm3, font=("Arial", 10), width=50, height=5)
+        textoTema.grid(row=0, column=3, padx=(0)) 
+     
         #--------------
         #cuarto frame
         #-----------
