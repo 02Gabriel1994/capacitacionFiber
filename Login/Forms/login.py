@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 from tkinter.font import BOLD
-import Login.utilidades.generic as utl
+import Login.utilidades.generic as utl 
 from Login.Forms.master import masterPanel
 import Login.validacion.cifrado  as validar
 
@@ -65,4 +65,5 @@ class app:
        #self.usuario.insert(0,"Holas")
        self.ventana.mainloop()
        
-  
+if __name__ == "__main__":
+    app = app()

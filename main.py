@@ -1,3 +1,4 @@
-from Login.Forms.Capacitaciones import RCapacitacion
+from Login.Forms.Principal import principal
 
-RCapacitacion()
+
+principal()
