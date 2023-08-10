@@ -109,7 +109,6 @@ boton_imagen2.pack(side=tk.RIGHT, padx=20, pady=20)
 root.mainloop()
 
 
-root.mainloop()
 
 
 

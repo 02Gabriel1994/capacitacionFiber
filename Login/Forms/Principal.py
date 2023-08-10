@@ -1,27 +1,27 @@
 import tkinter as tk
 from tkinter import ttk
+from tkinter import *
 from PIL import Image, ImageTk
+from Login.Forms.master import masterPanel
+from Login.Forms.Capacitaciones import RCapacitacion
+from Login.utilidades.generic import acercaDe
 
-def abrir_primera_ventana():
-    primera_ventana = tk.Toplevel(root)
-    primera_ventana.title("Primera Ventana")
-    
-    label = ttk.Label(primera_ventana, text="¡Primera Ventana!")
-    label.pack(padx=20, pady=20)
-
-def abrir_segunda_ventana():
-    segunda_ventana = tk.Toplevel(root)
-    segunda_ventana.title("Segunda Ventana")
-    
-    label = ttk.Label(segunda_ventana, text="¡Segunda Ventana!")
-    label.pack(padx=20, pady=20)
 
 class principal:
+    def abrirRmaster(self):
+        self.ventana.destroy()
+        masterPanel()
+    def abrirRCapacitacion(self):
+        self.ventana.destroy()
+        RCapacitacion()
+    def cerrarSesion(self):
+        self.ventana.destroy()
+        
     
     def __init__(self) :
         self.ventana = tk.Tk() 
         self.ventana.title('MENU PRINCIPAL') 
-        
+        menu = Menu (self.ventana)
         w, h = self.ventana.winfo_screenwidth(), self.ventana.winfo_screenheight()
         ancho = int(w * 0.8) 
         alto = int(h * 0.8)
@@ -29,10 +29,14 @@ class principal:
         y = (h - alto) // 2
 
         self.ventana.geometry(f"{ancho}x{alto}+{x}+{y}")
-        self.ventana.config(bg='#ffcc00') 
+        self.ventana.config(bg='#ffcc00', menu=menu) 
         self.ventana.resizable(width=10, height=10) 
         self.ventana.iconbitmap("./Login/Imagenes/sombrero-de-graduacion.ico")
-        
+        sesion= Menu(menu, tearoff=0)
+        sesion.add_command(label="Cerrar Sesión", command=self.cerrarSesion)
+        sesion.add_separator()
+        sesion.add_command(label="Acerca de", command=lambda: acercaDe())
+        menu.add_cascade(label="Sesión", menu= sesion)
         frameForm = tk.Frame(self.ventana, height=70, bd=20, bg='#ffcc00', relief="solid")
         frameForm.pack(expand=True, fill=tk.BOTH, pady=(self.ventana.winfo_screenheight() - alto) // 2)
 
@@ -46,19 +50,24 @@ class principal:
         imagen3 = Image.open("./Login/Imagenes/asistencia.jpg")
         imagen3 = imagen3.resize((150, 150), Image.BICUBIC)
         imagen3 = ImageTk.PhotoImage(imagen3)
+        imagen4 = Image.open("./Login/Imagenes/informes.jpg")
+        imagen4 = imagen4.resize((150, 150), Image.BICUBIC)
+        imagen4 = ImageTk.PhotoImage(imagen4)
 
-        boton_imagen1 = ttk.Button(frameForm, image=imagen1, command=abrir_primera_ventana)
+        boton_imagen1 = ttk.Button(frameForm, image=imagen1, command=self.abrirRmaster)
         boton_imagen1.pack(side=tk.LEFT, padx=10) 
 
-        boton_imagen2 = ttk.Button(frameForm, image=imagen2, command=abrir_segunda_ventana)
+        boton_imagen2 = ttk.Button(frameForm, image=imagen2, command=self.abrirRCapacitacion)
         boton_imagen2.pack(side=tk.LEFT, padx=10) 
-        boton_imagen3 = ttk.Button(frameForm, image=imagen3, command=abrir_segunda_ventana)
+        boton_imagen3 = ttk.Button(frameForm, image=imagen4) #command=abrir_segunda_ventana)
         boton_imagen3.pack(side=tk.RIGHT, padx=10) 
+        boton_imagen4 = ttk.Button(frameForm, image=imagen3) #, command=abrir_segunda_ventana)
+        boton_imagen4.pack(side=tk.RIGHT, padx=10) 
 
         self.ventana.mainloop()
 
-if __name__ == "__main__":
-    app = principal()
+# if __name__ == "__main__":
+#     app = principal()
 
 
 # Resto del código sin cambios

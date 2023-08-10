@@ -1,9 +1,10 @@
 import tkinter as tk
 from tkinter import ttk, messagebox
 from tkinter.font import BOLD
-import Login.utilidades.generic as utl 
-from Login.Forms.master import masterPanel
+
+from Login.Forms.Principal import principal
 import Login.validacion.cifrado  as validar
+import Login.utilidades.generic as utl 
 
 class app:
     
@@ -13,7 +14,7 @@ class app:
         ingresar = validar.validarlogin(password, usu)
         if (ingresar == True):
             self.ventana.destroy()
-            masterPanel()
+            principal()
         else:
             messagebox.showerror(message="Contraseña incorrecta", title= "Mensaje")
     

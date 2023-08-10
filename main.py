@@ -1,4 +1,3 @@
-from Login.Forms.Principal import principal
+from Login.Forms.login import app
 
-
-principal()
+app()
