@@ -29,13 +29,11 @@ def validarClave(user):
 
 validarClave("misterio")
 
-def buscar_Datos(sgid, cedula):
-    if not sgid == "":
-        buscar = sgid
-    else:
-        if not cedula == "":
+def buscar_Datos( cedula):
+    
+    if not cedula == "":
            buscar  = int(cedula)
-        else: 
+    else: 
             messagebox.showinfo("Información", "Debe ingresar un dato para buscar")
             return
     encontrado = False

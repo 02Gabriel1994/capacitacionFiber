@@ -33,6 +33,7 @@ class principal:
         self.ventana.resizable(width=10, height=10) 
         self.ventana.iconbitmap("./Login/Imagenes/sombrero-de-graduacion.ico")
         sesion= Menu(menu, tearoff=0)
+        sesion.add_command(label="Configuración")
         sesion.add_command(label="Cerrar Sesión", command=self.cerrarSesion)
         sesion.add_separator()
         sesion.add_command(label="Acerca de", command=lambda: acercaDe())
@@ -53,17 +54,27 @@ class principal:
         imagen4 = Image.open("./Login/Imagenes/informes.jpg")
         imagen4 = imagen4.resize((150, 150), Image.BICUBIC)
         imagen4 = ImageTk.PhotoImage(imagen4)
+        
+        imagen5 = Image.open("./Login/Imagenes/usuario.png")
+        imagen5 = imagen5.resize((150, 150), Image.BICUBIC)
+        imagen5 = ImageTk.PhotoImage(imagen5)
 
         boton_imagen1 = ttk.Button(frameForm, image=imagen1, command=self.abrirRmaster)
         boton_imagen1.pack(side=tk.LEFT, padx=10) 
 
         boton_imagen2 = ttk.Button(frameForm, image=imagen2, command=self.abrirRCapacitacion)
         boton_imagen2.pack(side=tk.LEFT, padx=10) 
-        boton_imagen3 = ttk.Button(frameForm, image=imagen4) #command=abrir_segunda_ventana)
-        boton_imagen3.pack(side=tk.RIGHT, padx=10) 
-        boton_imagen4 = ttk.Button(frameForm, image=imagen3) #, command=abrir_segunda_ventana)
-        boton_imagen4.pack(side=tk.RIGHT, padx=10) 
-
+        boton_imagen3 = ttk.Button(frameForm, image=imagen3) #command=abrir_segunda_ventana)
+        boton_imagen3.pack(side=tk.LEFT, padx=10) 
+        boton_imagen4 = ttk.Button(frameForm, image=imagen4) #, command=abrir_segunda_ventana)
+        boton_imagen4.pack(side=tk.LEFT, padx=10) 
+        
+        boton_imagen4 = ttk.Button(frameForm, image=imagen5) #, command=abrir_segunda_ventana)
+        boton_imagen4.pack(side=tk.LEFT, padx=10) 
+        frameForm2 =tk.Frame(frameForm, height=7000, bd=2, relief=tk.SOLID, bg='#ffcc00')#crea un marco frameFormTop dentro de otro marco llamado frameForm. El parámetro height=50 establece la altura del marco en 50 píxeles, bd=0 establece el ancho del borde en cero, relief=tk.SOLID define el estilo del borde como sólido y bg='black' establece el color de fondo del marco en negro.
+        frameForm2.pack(side='top', fill=tk.BOTH) 
+        etiqueta = tk.Label(frameForm2, text="Aqui va a ir todas las capacitaciones pendientes por ejecutar: ", font=('Arial', 10, 'bold'),bg='#ffcc00')
+        etiqueta.pack(side= 'left')
         self.ventana.mainloop()
 
 # if __name__ == "__main__":
