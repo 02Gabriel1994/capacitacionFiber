@@ -5,6 +5,7 @@
  #https://youtu.be/fDyO2vKrSfw
 from PIL import ImageTk, Image
 from tkinter import  messagebox
+import json
 def leerImagen(path,size):
     return ImageTk.PhotoImage(Image.open(path).resize(size, Image.BICUBIC)) # esta función carga una imagen, la redimensiona y la convierte en un objeto de imagen compatible con Tkinter utilizando las bibliotecas PIL y ImageTk. Esto es útil para mostrar imágenes en una aplicación de interfaz gráfica de usuario (GUI) de Tkinter
 
@@ -22,4 +23,12 @@ def centrarVentana(ventana,aplicacionAncho, aplicacionLargo):
 
 def acercaDe():
     messagebox.showinfo(message="Programa realizado por el area de sistemas FiberGlass Colombia S.A \n version 1.0 \n Para soporte Contactar al analista de sistemas \n Gracias", title= "Mensaje")
-        
+def LeerArchivoRrhh():
+    
+    with open('./Login/utilidades/AppSetings.txt', 'r') as archivo:
+    
+        ruta = json.loads(archivo.readline())
+        valor = ruta["Ruta bd RRHH"]
+    return valor
+
+

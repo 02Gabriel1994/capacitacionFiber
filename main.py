@@ -1,3 +1,3 @@
-from Login.Forms.master import masterPanel
+from Login.Forms.Config import config
 
-masterPanel()
+config()

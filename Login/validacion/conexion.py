@@ -2,6 +2,7 @@ import pyodbc
 from tkinter import messagebox
 import openpyxl
 import Login.Forms.master as ms
+import Login.utilidades.generic as utl
 def conexionsql():
     try:
         conexion = pyodbc.connect('DRIVER={SQL Server};SERVER=DESKTOP-26G83K4\SQLEXPRESS;DATABASE=CAPACITACION;UID=sa;PWD=Motorola')
@@ -39,7 +40,7 @@ def buscar_Datos( cedula):
     encontrado = False
 
     try:
-        libro_excel = openpyxl.load_workbook("F:/Documentos/PROYECTOS/pruebas/BASE DE DATOS PARA EL INGENIERO GABRIEL.xlsm")
+        libro_excel = openpyxl.load_workbook(utl.LeerArchivoRrhh())
         hoja = libro_excel.active
      
 
