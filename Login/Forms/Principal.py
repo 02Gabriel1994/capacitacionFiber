@@ -5,7 +5,7 @@ from PIL import Image, ImageTk
 from Login.Forms.master import masterPanel
 from Login.Forms.Capacitaciones import RCapacitacion
 from Login.utilidades.generic import acercaDe
-
+from Login.Forms.Config import config
 
 class principal:
     def abrirRmaster(self):
@@ -33,7 +33,7 @@ class principal:
         self.ventana.resizable(width=10, height=10) 
         self.ventana.iconbitmap("./Login/Imagenes/sombrero-de-graduacion.ico")
         sesion= Menu(menu, tearoff=0)
-        sesion.add_command(label="Configuración")
+        sesion.add_command(label="Configuración", command=lambda: config())
         sesion.add_command(label="Cerrar Sesión", command=self.cerrarSesion)
         sesion.add_separator()
         sesion.add_command(label="Acerca de", command=lambda: acercaDe())

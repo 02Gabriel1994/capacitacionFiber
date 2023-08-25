@@ -6,6 +6,8 @@ import Login.validacion.conexion as con
 from datetime import datetime
 from tkinter import *
 from Login.utilidades.generic import acercaDe
+from PIL import Image, ImageTk
+from main import inicio
 class masterPanel:
     def cerrarSesion(self):
         self.ventana.destroy()
@@ -119,11 +121,15 @@ class masterPanel:
         frameForm5 =tk.Frame(self.ventana, height=70, bd=20,  bg='#ffcc00')#crea un marco frameFormTop dentro de otro marco llamado frameForm. El parámetro height=50 establece la altura del marco en 50 píxeles, bd=0 establece el ancho del borde en cero, relief=tk.SOLID define el estilo del borde como sólido y bg='black' establece el color de fondo del marco en negro.
         frameForm5.columnconfigure([0,1,2,3], weight=1)
         frameForm5.pack(side='bottom', fill=tk.X) 
+        imagen = Image.open("./Login/Imagenes/inicio.png")
+        imagen = imagen.resize((10, 10), Image.BICUBIC)
+        imagen = ImageTk.PhotoImage(imagen)
         #Boton Guardar      
         guardar = tk.Button(frameForm5, text="Guardar", font=("Arial", 14), bg= "#000000", bd=0, fg="#fff")
         guardar.pack(side= 'bottom', padx=20)
-       
-
+        #Boton inicio
+        boton_imagen1 = ttk.Button(frameForm, image=imagen, command= inicio.inicio())
+        boton_imagen1.pack(side=tk.LEFT, padx=10) 
         def llenarInformacion( cedulav):
           resultado = con.buscar_Datos(cedulav) 
           print (resultado)   
