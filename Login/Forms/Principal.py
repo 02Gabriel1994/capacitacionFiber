@@ -9,17 +9,18 @@ from Login.Forms.Config import config
 
 class principal:
     def abrirRmaster(self):
-        self.ventana.destroy()
-        masterPanel()
+        self.ventana.withdraw()
+        self.masterPanel = masterPanel(self.ventana, self)
+        
     def abrirRCapacitacion(self):
-        self.ventana.destroy()
-        RCapacitacion()
+        self.ventana.withdraw()
+        self.RCapacitacion = RCapacitacion(self.ventana, self)
     def cerrarSesion(self):
         self.ventana.destroy()
         
     
-    def __init__(self) :
-        self.ventana = tk.Tk() 
+    def __init__(self, root) :
+        self.ventana = root
         self.ventana.title('MENU PRINCIPAL') 
         menu = Menu (self.ventana)
         w, h = self.ventana.winfo_screenwidth(), self.ventana.winfo_screenheight()
@@ -69,8 +70,8 @@ class principal:
         boton_imagen4 = ttk.Button(frameForm, image=imagen4) #, command=abrir_segunda_ventana)
         boton_imagen4.pack(side=tk.LEFT, padx=10) 
         
-        boton_imagen4 = ttk.Button(frameForm, image=imagen5) #, command=abrir_segunda_ventana)
-        boton_imagen4.pack(side=tk.LEFT, padx=10) 
+        boton_imagen5 = ttk.Button(frameForm, image=imagen5) #, command=abrir_segunda_ventana)
+        boton_imagen5.pack(side=tk.LEFT, padx=10) 
         frameForm2 =tk.Frame(frameForm, height=7000, bd=2, relief=tk.SOLID, bg='#ffcc00')#crea un marco frameFormTop dentro de otro marco llamado frameForm. El parámetro height=50 establece la altura del marco en 50 píxeles, bd=0 establece el ancho del borde en cero, relief=tk.SOLID define el estilo del borde como sólido y bg='black' establece el color de fondo del marco en negro.
         frameForm2.pack(side='top', fill=tk.BOTH) 
         etiqueta = tk.Label(frameForm2, text="Aqui va a ir todas las capacitaciones pendientes por ejecutar: ", font=('Arial', 10, 'bold'),bg='#ffcc00')

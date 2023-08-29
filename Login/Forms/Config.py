@@ -6,6 +6,8 @@ import Login.utilidades.generic as utl
 from tkinter import ttk, messagebox
 
 class config:
+    
+    
     def cambiarDireccionBdRrhh(self,direccion):
         resultado = messagebox.askquestion("ALERTA", "¿Quieres cambiar la ruta?")
         if resultado == "yes":
@@ -19,6 +21,8 @@ class config:
                 messagebox.showinfo("EXITO", "Se modifico correctamente la ruta")
         else:
             messagebox.showinfo("Sin Cambios", "no se modifico nada")
+        self.ventana.destroy()
+        
     def __init__(self) :
         self.ventana = tk.Tk() 
         self.ventana.title('Configuración del sistema')  
@@ -45,4 +49,9 @@ class config:
         #Boton Guardar      
         guardar = tk.Button(frameForm1, text="Cambiar", font=("Arial", 14), bg= "#000000", bd=0, fg="#fff", command=lambda: self.cambiarDireccionBdRrhh(textoRuta.get()))
         guardar.pack(side= 'bottom', padx=20)
+        
+        
+        
+        
+            
         self.ventana.mainloop()

@@ -7,13 +7,16 @@ from datetime import datetime
 from tkinter import *
 from Login.utilidades.generic import acercaDe
 from PIL import Image, ImageTk
-from main import inicio
+
 class masterPanel:
     def cerrarSesion(self):
         self.ventana.destroy()
-    
-    def __init__(self) :
-        self.ventana = tk.Tk() # crea una instancia de la clase Tk de la biblioteca Tkinter y se asigna a self.ventana. Esto crea una ventana principal para la aplicación.
+    def regresar_principal(self):
+        self.principal.ventana.deiconify()  # Mostrar la ventana A nuevamente
+        self.ventana.destroy()
+    def __init__(self,root, principal) :
+        self.ventana = tk.Toplevel(root) # crea una instancia de la clase Tk de la biblioteca Tkinter y se asigna a self.ventana. Esto crea una ventana principal para la aplicación.
+        self.principal = principal
         self.ventana.title('Capaciteichon') # Aquí se establece el título de la ventana como "master panel" utilizando el método .title().
         w,h = self.ventana.winfo_screenwidth(), self.ventana.winfo_screenheight() # calcula el tamaño de la pantalla del usuario
         # reduce al 0.8 el tamaño
@@ -127,9 +130,16 @@ class masterPanel:
         #Boton Guardar      
         guardar = tk.Button(frameForm5, text="Guardar", font=("Arial", 14), bg= "#000000", bd=0, fg="#fff")
         guardar.pack(side= 'bottom', padx=20)
-        #Boton inicio
-        boton_imagen1 = ttk.Button(frameForm, image=imagen, command= inicio.inicio())
-        boton_imagen1.pack(side=tk.LEFT, padx=10) 
+        # boton de inicio
+        imagenInicio = Image.open("./Login/Imagenes/inicio.png")
+        imagenInicio = imagenInicio.resize((50, 50), Image.BICUBIC)
+        imagenInicio = ImageTk.PhotoImage(imagenInicio)
+        
+        botonInicio = ttk.Button(frameForm5, image=imagenInicio,  command=self.regresar_principal) #, command=abrir_segunda_ventana)
+        
+        botonInicio.pack(side=tk.RIGHT) 
+        
+        
         def llenarInformacion( cedulav):
           resultado = con.buscar_Datos(cedulav) 
           print (resultado)   
