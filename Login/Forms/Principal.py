@@ -15,6 +15,7 @@ class principal:
     def abrirRCapacitacion(self):
         self.ventana.withdraw()
         self.RCapacitacion = RCapacitacion(self.ventana, self)
+        self.RCapacitacion.mainloop()
     def cerrarSesion(self):
         self.ventana.destroy()
         
